@@ -1,0 +1,46 @@
+<div class="fadeInDown">
+    <!-- Tabs Titles -->
+    <nb-layout>
+      <nb-layout-column class="fadeIn top-layout-column">
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <img src="./favicon.ico" id="icon" width="300px" alt="User Icon" id="main-logo" />
+        </div>
+  
+        <span style="font-size: 40px; letter-spacing: 5px; text-align: center; font-weight: bolder;">WELCOME!
+        </span>
+        <span style="font-size: 15px; color: #d18c54; display: block; padding:20px;">Log in with your email</span>
+        <!-- Login Form -->
+        <div class="wrapper-2">
+          <div class="fadeIn first wrapper-2">
+            <form class="mt-3 login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <label for="input-email" class="label">Email
+                address:</label><br />
+              <input formControlName="email" type="email" class="fadeIn second" nbInput fullWidth fieldSize="large"
+                placeholder="Enter Email">
+              <div *ngIf="
+                      loginForm.get('email').errors &&
+                      loginForm.get('email').invalid &&
+                      loginForm.get('email').touched
+                    ">
+                <small *ngIf="loginForm.get('email').errors?.required">*This field is required</small>
+              </div>
+              <br /><br />
+              <span style="display: flex; justify-content: space-between;">
+                <label for="input-password" class="label">Password:</label>
+                <a routerLink="/forgot-password" class="forgot-password caption-2">Forgot Password?</a>
+              </span>
+              <input formControlName="password" type="password" class="fadeIn second" nbInput fullWidth fieldSize="large"
+                placeholder="Enter Password">
+              <div *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+                <small>*Enter Password</small>
+              </div>
+              <br /><br />
+              <button nbButton size="large" status="basic" style="width: 100%;" outline type="submit">Login</button>
+              <br /><br />
+            </form>
+          </div>
+        </div>
+      </nb-layout-column>
+    </nb-layout>
+  </div>

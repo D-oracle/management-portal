@@ -1,0 +1,67 @@
+<nb-card>
+    <nb-card-header>View and Edit Service</nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-12" *ngIf="service">
+                <h6>{{service.name | uppercase}} service</h6>
+                <div class="py-3">
+                    <div>
+                        <label for="name">Service Name: </label> &nbsp;
+                        <input id="name" nbInput [(ngModel)]="service.name" name="name" placeholder="service Name" />
+                    </div>
+                </div>
+                <div class="py-3">
+                    <div>
+                        <label for="location">Service Locationn: </label> &nbsp;
+                        <input id="location" nbInput [(ngModel)]="service.location" name="location"
+                            placeholder="service description" />
+                    </div>
+                </div>
+                <div class="py-3">
+                    <div>
+                        <label for="cost">Service Cost: </label> &nbsp;
+                        <input id="cost" nbInput [(ngModel)]="service.cost" name="cost"
+                            placeholder="service description" />
+                    </div>
+                </div>
+                <div class="py-3">
+                    <div>
+                        <label for="category">Service Category: </label> &nbsp;
+                        <input id="category" nbInput [(ngModel)]="service.category" name="category"
+                            placeholder="Duty" />
+                    </div>
+                </div>
+                <div class="py-3">
+                    <div>
+                        <label for="propName">Category Name: </label> &nbsp;
+                        <input id="propName" nbInput [(ngModel)]="service.propName" name="propName"
+                            placeholder="Property Name" />
+                    </div>
+                </div>
+                <div class="py-3">
+                    <div>
+                        <label for="value">Category Value: </label> &nbsp;
+                        <input id="value" nbInput [(ngModel)]="service.propValue" name="propValue"
+                            placeholder="Property Value" />
+                    </div>
+                </div>
+                <div class="py-3">
+                    <div>
+                        <label for="propName">Sub-Category Name: </label> &nbsp;
+                        <input id="propName" nbInput [(ngModel)]="service.subPropName" name="subPropName"
+                            placeholder="Property Name" />
+                    </div>
+                </div>
+                <div class="py-3">
+                    <div>
+                        <label for="value">Sub-Category Value: </label> &nbsp;
+                        <input id="value" nbInput [(ngModel)]="service.subPropValue" name="subPropValue"
+                            placeholder="Property Value" />
+                    </div>
+                </div>
+                <button nbButton (click)="goBack()">go back</button> &nbsp;
+                <button nbButton (click)="save()">Save</button>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

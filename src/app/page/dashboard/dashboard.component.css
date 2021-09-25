@@ -1,0 +1,11 @@
+
+  
+  .card-row {
+    display: flex;
+    margin: 0 -0.5rem;
+  }
+  
+  .card-col {
+    flex: 1 1 calc(50% - 1rem);
+    margin: 0 0.5rem;
+  }

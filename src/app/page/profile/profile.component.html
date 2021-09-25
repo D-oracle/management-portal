@@ -1,0 +1,96 @@
+<div class="row no-print">
+    <div class="col-lg-8">
+        <nb-card>
+            <nb-card-header>
+                My Profile
+            </nb-card-header>
+            <nb-card-body>                
+                <form [formGroup]="profileForm" (submit)="updateProfile()">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="photo">*Add Photo</label>
+              
+                              <input type="file" nbInput status="basic" fullWidth id="logo" (change)="onImagePicked($event)"/>
+                            </div>
+              
+                            <div *ngIf="imagePreview">
+                              <img [src]="imagePreview" alt="photo" width="100px" height="100px" />
+                            </div>
+
+                            <div *ngIf="imageRequired">
+                              <small>*Photo Required</small>
+                            </div>
+                            <div *ngIf="invalidImage">
+                              <small>Photo Format should be *.png, *.jpg, *.jpeg</small>
+                            </div>
+                          </div>
+              
+                        <div class="col-md-4 my-2">
+                            <input type="name" value="{{firstname}}" disabled shape="semi-round" fullWidth
+                                fieldSize="medium" nbInput placeholder="First Name">
+                        </div>
+                        <div class="col-md-4 my-2">
+                            <input type="name" value="{{lastname}}" disabled shape="semi-round" fullWidth
+                                fieldSize="medium" nbInput placeholder="Last Name">
+                        </div>
+                        <div class="col-md-4 my-2">
+                            <input type="name" formControlName="othername" value="{{othername}}" shape="semi-round"
+                                fullWidth fieldSize="medium" nbInput placeholder="Other Name">
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <input type="name" formControlName="location" [value]="location" shape="semi-round"
+                                fullWidth fieldSize="medium" nbInput placeholder="Location">
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <input type="name" [value]="role" disabled shape="semi-round" fullWidth fieldSize="medium"
+                                nbInput placeholder="Role">
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <input type="email" [value]="email" disabled shape="semi-round" fullWidth fieldSize="medium"
+                                nbInput placeholder="Email">
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <input type="phone" [value]="phone" disabled shape="semi-round" fullWidth fieldSize="medium"
+                                nbInput placeholder="Phone">
+                        </div>
+                        <div class="col-md-12 my-2">
+                            <input type="name" formControlName="address" [value]="address" shape="semi-round" fullWidth
+                                fieldSize="medium" nbInput placeholder="Address">
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <button type="submit" fullWidth outline status="primary" nbButton>Submit</button>
+                    </div>
+                </form>
+                <button class="align-content-center" nbButton (click)="open()">Generate Id Card</button>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-lg-4">
+        <nb-card>
+            <nb-card-header>Change Password</nb-card-header>
+            <nb-card-body>
+                <form [formGroup]="changePasswordForm">
+                    <div class="row">
+                        <div class="col-md-12 my-2">
+                            <input type="name" formControlName="old_password" shape="semi-round" fullWidth
+                                fieldSize="medium" nbInput placeholder="Old Password">
+                        </div>
+                        <div class="col-md-12 my-2">
+                            <input type="name" formControlName="new_password" shape="semi-round" fullWidth
+                                fieldSize="medium" nbInput placeholder="New Password">
+                        </div>
+                        <div class="col-md-12 my-2">
+                            <input type="name" shape="semi-round" ref-confirmPassword fullWidth fieldSize="medium"
+                                nbInput placeholder="Confirm New Password">
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <button type="submit" fullWidth outline status="primary" nbButton>Submit</button>
+                    </div>
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<nb-card>
+    <nb-card-header>View and Edit Role</nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-12" *ngIf="role">
+                <h6>{{role.name | uppercase}} Role</h6>
+                <div class="py-3">
+                    <div>
+                        <label for="name">Role Name: </label> &nbsp;
+                        <input id="name" nbInput [(ngModel)]="role.name" placeholder="Role Name"/>
+                      </div>
+                </div>
+                <div class="py-3">
+                    <div>
+                        <label for="desc">Role Description: </label> &nbsp;
+                        <input id="desc" nbInput [(ngModel)]="role.desc" placeholder="Role description"/>
+                      </div>
+                </div>
+                <div class="py-3">
+                    <div>
+                        <label for="duty">Role Duty: </label> &nbsp;
+                        <input id="duty" nbInput [(ngModel)]="role.duty" placeholder="Duty"/>
+                      </div>
+                </div>
+                <button nbButton (click)="goBack()">go back</button> &nbsp;
+                <button nbButton (click)="save()">save</button>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

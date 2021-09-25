@@ -1,0 +1,39 @@
+<nb-card>
+    <nb-card-header>View and Edit Staff</nb-card-header>
+    <nb-card-body>
+        <div class="row" *ngIf="staff">
+            <div class="col-md-6 my-2">                
+                <div>
+                    <input id="name" nbInput [(ngModel)]="staff.firstname" placeholder="First Name"/>
+                </div>
+            </div>
+            <div class="col-md-6 my-2">                
+                <div>
+                    <input id="name" nbInput [(ngModel)]="staff.lastname" placeholder="Last Name"/>
+                </div>
+            </div>
+            <div class="col-md-6 my-2">                
+                <div>
+                    <input id="name" nbInput [(ngModel)]="staff.email" placeholder="Email Address"/>
+                </div>
+            </div>        
+            <div class="col-md-6 my-2">                
+                <div>
+                    <input id="name" nbInput [(ngModel)]="staff.phone" placeholder="Phone Number"/>
+                </div>
+            </div>
+            <div  class="col-md-6 my-2">
+                <nb-select multiple shape="semi-round" fullWidth fieldSize="medium" [(ngModel)]="staff_role" placeholder="staff's Role">
+                    <nb-option *ngFor="let r of services" [value]="r.name">{{r.name}}</nb-option>
+                </nb-select>
+            </div>
+            <div class="col-md-6 my-2">
+                <nb-select shape="semi-round" fullWidth fieldSize="medium" [(ngModel)]="location" placeholder="Location">
+                    <nb-option *ngFor="let r of locations" [value]="r.city | lowercase">{{r.city}}</nb-option>
+                </nb-select>
+            </div>
+                <button nbButton (click)="goBack()">go back</button> &nbsp;
+                <button nbButton (click)="save()">save</button>
+        </div>
+    </nb-card-body>
+</nb-card>

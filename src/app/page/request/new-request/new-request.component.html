@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <nb-card [size]="'large'" accent="info">
+                <nb-card-header>New Requests</nb-card-header>
+                <nb-card-body>
+                    <mat-form-field>
+                        <mat-label>Filter</mat-label>
+                        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+                      </mat-form-field>
+                      
+                      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                      
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="position">
+                            <th mat-header-cell *matHeaderCellDef> No. </th>
+                            <td mat-cell *matCellDef="let element; let i=index"> {{i + 1}}</td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="refId">
+                          <th mat-header-cell *matHeaderCellDef> refId </th>
+                          <td mat-cell *matCellDef="let element"> {{element.ref}} </td>
+                      </ng-container>
+
+                        <ng-container matColumnDef="type">
+                            <th mat-header-cell *matHeaderCellDef> Type </th>
+                            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="cost">
+                          <th mat-header-cell *matHeaderCellDef> Cost </th>
+                          <td mat-cell *matCellDef="let element"> {{element.request.cost}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="date">
+                            <th mat-header-cell *matHeaderCellDef> Date </th>
+                            <td mat-cell *matCellDef="let element"> {{element.requested_at | date: 'short'}} </td>
+                          </ng-container>
+  
+                        <ng-container matColumnDef="actions">
+                            <th mat-header-cell *matHeaderCellDef> Actions </th>
+                            <td mat-cell *matCellDef="let element"> 
+                                <a [routerLink]="['../view-request/', element._id]"><nb-icon icon="eye-outline" status="basic"></nb-icon></a> &nbsp;&nbsp;
+                                <a (click)="delete(element._id)" style="cursor: pointer;"><nb-icon icon="trash-outline" status="danger"></nb-icon></a>
+                            </td>
+                        </ng-container>
+                      
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                      
+                        <!-- Row shown when there is no matching data. -->
+                        <tr class="mat-row" *matNoDataRow>
+                          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                        </tr>
+                      </table>
+                      <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
+</div>

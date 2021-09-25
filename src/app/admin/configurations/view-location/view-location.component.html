@@ -1,0 +1,28 @@
+<nb-card>
+    <nb-card-header>View and Edit Location</nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-12" *ngIf="location">
+                <div class="py-3">
+                    <div>
+                        <input id="state" nbInput [(ngModel)]="location.state" placeholder="Location State"/>
+                      </div>
+                </div>
+                <div class="py-3">
+                    <div>
+                        <input id="city" nbInput [(ngModel)]="location.city" placeholder="Location City"/>
+                      </div>
+                </div>
+                <div class="py-3">
+                    <div>
+                        <nb-select shape="semi-round" status="primary" fullWidth fieldSize="medium" placeholder="Location Co-ordinator" [(ngModel)]="location.locationCoordinator" >
+                            <nb-option *ngFor="let staff of staffs" value="{{staff._id}}">{{staff.firstname}}</nb-option>
+                        </nb-select>
+                      </div>
+                </div>
+                <button nbButton (click)="goBack()">go back</button> &nbsp;
+                <button nbButton (click)="save()">save</button>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

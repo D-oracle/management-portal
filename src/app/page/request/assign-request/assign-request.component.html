@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <nb-card [size]="'large'" accent="info" *ngIf="applicant$ | async as a">
+                <nb-card-header>View and Manage Request
+                </nb-card-header>
+                <nb-card-body>
+                    <div class="row">
+                        <div class="col-md-4">
+                          
+                        </div>
+                        <div class="col-12">
+                            <button (click)="update(a._id, 'approved')" nbButton>Approve</button>
+                            <button (click)="update(a._id, 'declined')" nbButton>Reject</button>
+                            <button (click)="update(a._id, 'reviewed')" nbButton>Reviewed</button>
+                        </div>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
+</div>

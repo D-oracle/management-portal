@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row">
+        <nb-card>
+            <nb-card-header>Add Agent</nb-card-header>
+            <nb-card-body>
+                <form [formGroup]="agentForm" (submit)="createAgentAccount()">
+                    <div class="row">
+                        <div class="col-md-6 my-2">
+                            <input type="text" formControlName="firstname" shape="semi-round" fullWidth fieldSize="medium" nbInput placeholder="First Name">
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <input type="text" formControlName="lastname" shape="semi-round" fullWidth fieldSize="medium" nbInput placeholder="Last Name">
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <input type="text" formControlName="othername" shape="semi-round" fullWidth fieldSize="medium" nbInput placeholder="Other Name">
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <nb-select multiple shape="semi-round" fullWidth fieldSize="medium" formControlName="agent_role" placeholder="Agent's Role">
+                                <nb-option *ngFor="let r of services" [value]="r.name">{{r.name}}</nb-option>
+                            </nb-select>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <nb-select shape="semi-round" fullWidth fieldSize="medium" formControlName="location" placeholder="Location">
+                                <nb-option *ngFor="let r of locations" [value]="r.city | lowercase">{{r.city}}</nb-option>
+                            </nb-select>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <input type="email" formControlName="email" shape="semi-round" fullWidth fieldSize="medium" nbInput placeholder="Email">
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <input type="password" formControlName="password" shape="semi-round" fullWidth fieldSize="medium" nbInput placeholder="Temporary Password">
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <input type="text" formControlName="phone" shape="semi-round" fullWidth fieldSize="medium" nbInput placeholder="Phone Number">
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <button type="submit" fullWidth outline status="primary" nbButton>Submit</button>
+                    </div>
+                </form>
+            </nb-card-body>
+        </nb-card>
+        <div class="col-12">
+        </div>
+    </div>
+</div>

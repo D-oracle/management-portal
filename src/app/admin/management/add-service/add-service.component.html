@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <div class="row">
+        <nb-card>
+            <nb-card-header>Add Service</nb-card-header>
+            <nb-card-body>
+                <form [formGroup]="serviceForm" (submit)="createService()">
+                    <div class="row">
+                        <div class="col-md-6 my-2">
+                            <nb-select shape="semi-round" fullWidth fieldSize="medium" placeholder="Name" formControlName="name">
+                                <nb-option value="Car Wash">Car Wash</nb-option>
+                                <nb-option value="Cook for me">Cook For Me</nb-option>
+                                <nb-option value="Drive me">Drive Me</nb-option>
+                                <nb-option value="hair care">Hair Care</nb-option>
+                                <nb-option value="Cleaning">Cleaning</nb-option>
+                                <nb-option value="Grocery Shopping">Grocery Shopping</nb-option>
+                                <nb-option value="School run">School run</nb-option>
+                                <nb-option value="Laundry">Laudry</nb-option>
+                            </nb-select>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <input type="text" formControlName="cost" shape="semi-round" fullWidth fieldSize="medium" nbInput placeholder="Cost / Amount">
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <nb-select shape="semi-round" fullWidth fieldSize="medium" placeholder="Location" formControlName="location">
+                                <nb-option value="">All Locations</nb-option>
+                                <nb-option *ngFor="let location of locations" [value]="location.city">{{location.city}}</nb-option>
+                            </nb-select>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <nb-select shape="semi-round" fullWidth fieldSize="medium" placeholder="Category" formControlName="category">
+                                <nb-option value="home service">Home Service</nb-option>
+                                <nb-option value="outdoor service">Outdoor Service</nb-option>
+                            </nb-select>
+                        </div>
+                        <hr>
+                        <h6 for="text">Additional Categories</h6>
+                        <div class="col-md-6 my-2">
+                            <input type="text" formControlName="propName" shape="semi-round" fullWidth fieldSize="medium" nbInput placeholder="Category Name">
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <input type="text" formControlName="propValue" shape="semi-round" fullWidth fieldSize="medium" nbInput placeholder="Category Value">
+                        </div>
+
+                        <h6 for="text">Sub Categories</h6>
+                        <div class="col-md-6 my-2">
+                            <input type="text" formControlName="subPropName" shape="semi-round" fullWidth fieldSize="medium" nbInput placeholder="Sub-Category Name">
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <input type="text" formControlName="subPropValue" shape="semi-round" fullWidth fieldSize="medium" nbInput placeholder="Sub-Category Value">
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <button type="submit" fullWidth outline status="primary" nbButton>Submit</button>
+                    </div>
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

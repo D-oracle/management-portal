@@ -1,0 +1,44 @@
+<nb-card>
+    <nb-card-header>View and Edit Agent</nb-card-header>
+    <nb-card-body>
+        <div class="row" *ngIf="agent">
+            <div class="col-md-4 my-2">                
+                <div>
+                    <input id="name" nbInput [(ngModel)]="agent.firstname" placeholder="First Name"/>
+                </div>
+            </div>
+            <div class="col-md-4 my-2">                
+                <div>
+                    <input id="name" nbInput [(ngModel)]="agent.lastname" placeholder="Last Name"/>
+                </div>
+            </div>
+            <div class="col-md-4 my-2">                
+                <div>
+                    <input id="name" nbInput [(ngModel)]="agent.othername" placeholder="Other Names"/>
+                </div>
+            </div>
+            <div class="col-md-6 my-2">                
+                <div>
+                    <input id="name" nbInput [(ngModel)]="agent.email" placeholder="Email Address"/>
+                </div>
+            </div>        
+            <div class="col-md-6 my-2">                
+                <div>
+                    <input id="name" nbInput [(ngModel)]="agent.phone" placeholder="Phone Number"/>
+                </div>
+            </div>
+            <div  class="col-md-6 my-2">
+                <nb-select multiple shape="semi-round" fullWidth fieldSize="medium" [(ngModel)]="agent.agent_role" placeholder="Agent's Role">
+                    <nb-option *ngFor="let r of services" [value]="r.name">{{r.name}}</nb-option>
+                </nb-select>
+            </div>
+            <div class="col-md-6 my-2">
+                <nb-select shape="semi-round" fullWidth fieldSize="medium" [(ngModel)]="agent.location" placeholder="Location">
+                    <nb-option *ngFor="let r of locations" [value]="r.city | lowercase">{{r.city}}</nb-option>
+                </nb-select>
+            </div>
+                <button nbButton (click)="goBack()">go back</button> &nbsp;
+                <button nbButton (click)="save()">save</button>
+        </div>
+    </nb-card-body>
+</nb-card>

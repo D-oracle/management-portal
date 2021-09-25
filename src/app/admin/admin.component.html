@@ -1,0 +1,34 @@
+<nb-layout class="no-print">
+
+    <nb-layout-header fixed>
+        <a href="#" (click)="toggle()">
+            <nb-icon icon="menu-2-outline"></nb-icon>
+        </a>
+        <div style="text-align: right; position: absolute; float: right; right: 30px;">            
+            <nb-user size="large" name="{{user.firstname | uppercase}} {{user.lastname | uppercase}}"  [nbContextMenu]="contextItems" nbContextMenuTag="my-context-menu" [title]="user.role | uppercase">
+            </nb-user>                
+        </div>
+    </nb-layout-header>
+
+    <!-- <nb-layout-header subheader>
+        <nb-actions>
+            <nb-action icon="home-outline"></nb-action>
+            <nb-action icon="search-outline"></nb-action>
+            <nb-action icon="edit-outline"></nb-action>
+        </nb-actions>
+    </nb-layout-header> -->
+    <nb-sidebar class="no-print">
+        <nb-menu [items]="items">
+        </nb-menu>
+    </nb-sidebar>
+
+    <nb-layout-column class="no-print">
+        <router-outlet></router-outlet>
+    </nb-layout-column>
+
+    <nb-layout-footer fixed>
+        <div>Product of <a style="text-decoration: none; color: white;" href="https://amouralinksit.com">Amouralinks</a>
+            &copy; 2020</div>
+    </nb-layout-footer>
+
+</nb-layout>

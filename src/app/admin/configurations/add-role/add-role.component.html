@@ -1,0 +1,18 @@
+<nb-card>
+    <nb-card-header>Create Role</nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="rolesForm" (submit)="createRole()">
+            <div class="row">
+                <div class="col-md-6 my-2">
+                    <input type="text" nbInput shape="semi-round" fullWidth status="primary" placeholder="Name" formControlName="name">
+                </div>
+                <div class="col-md-6 my-2">
+                    <input type="text" nbInput shape="semi-round" fullWidth status="primary" placeholder="Description" formControlName="desc">
+                </div>
+            </div>
+            <div class="py-2">
+                <button type="submit" status="primary" fullWidth nbButton>Submit</button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

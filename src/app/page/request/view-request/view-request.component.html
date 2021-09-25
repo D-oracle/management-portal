@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <nb-card [size]="'large'" accent="info" *ngIf="request$ | async as a">
+                <nb-card-header>View and Manage Request
+                </nb-card-header>
+                <nb-card-body>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5>
+                                Service Details
+                            </h5>
+                          <p>Category: {{a.request.category}}</p>
+                          <p>Cost: {{a.request.cost}}</p>
+                          <p></p>
+                          <p></p>
+
+                          <h5>
+                              Clients Details
+                              <p>Full Name: {{a.userId}}</p> 
+                          </h5>
+                        </div>
+                        <div class="col-12">
+                            <button (click)="update(a._id, 'active')" nbButton>Active</button>
+                            <button (click)="update(a._id, 'cancel')" nbButton>Cancel</button>
+                            <button (click)="update(a._id, 'completed')" nbButton>Completed</button>
+                        </div>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
+</div>

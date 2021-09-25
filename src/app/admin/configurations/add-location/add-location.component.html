@@ -1,0 +1,23 @@
+<nb-card>
+    <nb-card-header>Add Location</nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="locationForm" (submit)="createLocation()">
+            <div class="row">
+                <div class="col-md-6 my-2">
+                    <input type="text" nbInput shape="semi-round" fullWidth status="primary" placeholder="State" formControlName="state">
+                </div>
+                <div class="col-md-6 my-2">
+                    <input type="text" nbInput shape="semi-round" fullWidth status="primary" placeholder="City" formControlName="city">
+                </div>
+                <div class="col-md-6 my-2">
+                    <nb-select shape="semi-round" status="primary" fullWidth fieldSize="medium" placeholder="Location Co-ordinator" formControlName="elc" >
+                        <nb-option *ngFor="let staff of staffs" value="{{staff._id}}">{{staff.firstname}}</nb-option>
+                    </nb-select>
+                </div>
+            </div>
+            <div class="py-2">
+                <button type="submit" status="primary" fullWidth nbButton>Submit</button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>
